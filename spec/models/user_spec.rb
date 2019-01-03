@@ -13,7 +13,7 @@ describe User do
     end
 
     it "is invalid without a password" do
-      user = build(user, password: nil)
+      user = build(:user, password: nil)
       user.valid?
       expect(user.errors[:password]).to include("を入力してください")
     end

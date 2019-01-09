@@ -39,7 +39,7 @@
 |city|string|null: false|
 |block_number|string|null: false|
 |building_name|string||
-|user_id|bigint||
+|user_id|references|foreign_key: true|
 |created_at|datetime|null: false|
 |updated_at|datetime|null: false|
 
@@ -53,7 +53,7 @@
 |------|----|------|
 |uid|string|null: false|
 |provider|string|null: false|
-|user_id|bigint|null: false|
+|user_id|references|null: false, foreign_key: true|
 |created_at|datetime|null: false|
 |updated_at|datetime|null: false|
 
@@ -70,7 +70,7 @@
 |expected_date|integer||
 |price|integer|index: true, null: false|
 |user_id|references|null: false, foreign_key: true|
-|brand_id|references|null: false, forein_key: true|
+|brand_id|references|null: false, foreign_key: true|
 |like_count|integer|default: 0|
 |status|string|null: false|
 |size|string|null: false|
@@ -100,7 +100,7 @@
 ## shipping table
 |Column|Type|Option|
 |------|----|------|
-|product_id|integer||
+|product_id|references|foreign_key: true|
 |shipping_burden|integer||
 |shipping_area|string|null: false|
 |delivary_date|integer|null: false|
@@ -113,7 +113,7 @@
 |Column|Type|Option|
 |------|----|------|
 |image|string|null: false|
-|product_id|bigint||
+|product_id|references|foreign_key: true|
 |created_at|datetime|null: false|
 |updated_at|datetime|null: false|
 
@@ -125,8 +125,8 @@
 
 |Column|Type|Option|
 |------|----|------|
-|user_id|integer|null: false|
-|product_id|integer|null: false|
+|user_id|references|null: false, foreign_key: true|
+|product_id|referemces|null: false, foreign_key: true|
 |created_at|datetime|null: false|
 |updated_at|datetime|null: false|
 
@@ -137,17 +137,17 @@
 
 ## categories table
 
-### gem ancestryを使用
+### gem awesome_nested_setを使用
 
 |Column|Type|Option|
 |------|----|------|
-|name|string|index: true|
-|ancestry|string|index: true|
+|product_id|references|foreign_key: true|
+|lft|integer|index: true|
+|rgt|integer|index: true|
 
 ### Association
 
 - has_many: products
-- has_ancestry
 
 ## brands table
 

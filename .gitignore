@@ -14,6 +14,9 @@ tmp/cache/bootsnap-compile-cache/d6/947842bf98bb46
 /log/*
 /tmp/*
 
+!/log/.keep
+!/tmp/.keep
+
 tmp/cache/bootsnap-load-path-cache
 
 tmp/cache/bootsnap-compile-cache/84/1aac809a8a4081

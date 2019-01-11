@@ -13,6 +13,7 @@ tmp/cache/bootsnap-compile-cache/d6/947842bf98bb46
 
 /log/*
 /tmp/*
+
 !/log/.keep
 !/tmp/.keep
 

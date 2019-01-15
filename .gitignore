@@ -30,3 +30,6 @@ tmp/cache/bootsnap-compile-cache/19/f2c4fcfe0bb12e
 *.jpg
 *.png
 *.svg
+
+.env
+/.env

@@ -9,7 +9,7 @@ Devise.setup do |config|
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
   # config.secret_key = '52ae42993b643d7b638847ed6a7782175811f9dbc142ab85bb0536dacc319b094438f0e85bf8bfcb648fbc2796346be06467b76b63679d09a8a1e2787bc0db77'
-  
+
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
@@ -287,4 +287,10 @@ Devise.setup do |config|
   # ActiveSupport.on_load(:devise_failure_app) do
   #   include Turbolinks::Controller
   # end
+  config.omniauth :google_oauth2,
+                  Rails.application.secrets.google_client_id,
+                  Rails.application.secrets.google_client_secret
+  config.omniauth :facebook,
+                  Rails.application.secrets.facebook_client_id,
+                  Rails.application.secrets.facebook_client_secret
 end

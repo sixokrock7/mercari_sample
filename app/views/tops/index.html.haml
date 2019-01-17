@@ -1,8 +1,7 @@
 = render 'shared/global_header'
 
 %main.white
-  %img.section.owl-carousel.top-carousel.owl-loaded.owl-drag{alt: 'メルカリ', src: 'assets/mercari_content_pc.png'}
-
+  = image_tag "/assets/mercari_content_pc.png", alt: "メルカリ", class: "section owl-carousel top-carousel owl-loaded owl-drag"
   %section.pickup-container
     %h2.pickup-head
       %a.pickup-head-name ピックアップカテゴリー

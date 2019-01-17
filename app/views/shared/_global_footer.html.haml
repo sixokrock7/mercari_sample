@@ -4,15 +4,15 @@
       %h2 スマホで簡単フリマアプリ
       %p 今すぐ無料ダウンロード！
       .app__banner-icon
-        %img{src: "/assets/mercari_icon.png", class:"app__banner-logo"}/
+        = image_tag "/assets/mercari_icon.png", class: "app__banner-logo"
         %ul.store
           %li
-            %a{href: "https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8"}
-              %img{src: "/assets/app-store.svg", class:"app-store"}/
+            = link_to href: "https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8" do
+              = image_tag "/assets/app-store.svg", class: "app-store"
           %li
-            %a{href: "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja"}
-              %img{src: "/assets/google-play.svg", class:"google-play"}/
-    %img{src: "/assets/banner-img.jpg", class:"app__banner-pc-image"}/
+            = link_to href: "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja" do
+              = image_tag "/assets/google-play.svg", class: "google-play"
+    = image_tag "/assets/banner-img.jpg", class: "app__banner-pc-image"
 %footer.footer
   .nav
     %ul.nav__list
@@ -103,9 +103,4 @@
   = link_to "", class: "sell-btn" do
     %p.sell-text 出品
     = fa_icon "camera"
-  / %a{href: ""}
-  /   %img{src: "/assets/logo-white.svg"}/
-  / %p.footer__copyright © 2018 Mercari
-  / %a{href: "", class:"sell-btn"}
-  /   %p.sell-text 出品
-  /   %i.fa.fa-camera
+

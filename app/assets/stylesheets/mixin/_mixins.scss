@@ -5,3 +5,29 @@
     display: block;
   }
 }
+
+@mixin user-icon($phi:60px){
+  border-radius: 50%;
+  display: block;
+  height:$phi;
+  width:$phi;
+  margin: 0 auto;
+}
+
+@mixin mypage-content-angle{
+  float:right;
+  line-height: 50px;
+}
+
+@mixin mypage-content-parts{
+  width:100%;
+  text-decoration: none;
+  border-bottom:thin solid;
+  border-color: $Gray;
+  box-sizing:border-box;
+  padding:0 15px;
+  background-color:$White;
+  &:hover{
+    background-color:#FAFAFA;
+  }
+}

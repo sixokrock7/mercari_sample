@@ -5,4 +5,5 @@ Rails.application.routes.draw do
 
   resources :tops, onlu: [:index]
   resources :users, only:[:create, :edit, :show]
+  resources :mypages, controller: :users, only: [:show]
 end

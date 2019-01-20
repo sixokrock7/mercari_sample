@@ -5,8 +5,7 @@
         .mypage_top__backimage
           =image_tag "member_photo_noimage_thumb.png",alt:"noimage_thumb",class: "mypage_top__profile_icon"
           .mypage_top__profile
-            = link_to "" do
-              ユーザー名
+            ユーザー名
           .mypage_top__profile
             = "評価 #{0}  出品数 #{0}"
     .mypage__content-box
@@ -19,7 +18,7 @@
             .mypage__tabs-text やることリスト
       %ul.mypage__item-list-top
         %li
-          =link_to "",class: "mypage__item-link","style": "color:black;" do
+          =link_to "",class: "mypage__item-link" do
             .mypage__item
               .mypage__item-figure
                 =image_tag "mercari_profile.png",class: "item-figure"
@@ -29,7 +28,7 @@
               .mypage__item-time
                 %i.far.fa-clock
                   = " 2時間前"
-          =link_to "",class: "mypage__item-link","style": "color:black;" do
+          =link_to "",class: "mypage__item-link" do
             .mypage__item
               .mypage__item-figure
                 =image_tag "mercari_profile.png",class: "item-figure"
@@ -41,7 +40,7 @@
                   = "時間前"
           .mypage__item-to-index
             .link-to-item
-              = link_to "","style": "color:black;" do
+              = link_to "" do
                 %h4.view-index 一覧を見る
         %li.display-none
           .mypage__no-item

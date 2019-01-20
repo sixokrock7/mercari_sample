@@ -128,7 +128,10 @@ a.mypage__tabs-list,a.mypage__item-to-show{
       line-height: 18px;
     }
     &-time{
-      color: gray;
+      color: $Gray;
+    }
+    &-time {
+      color: $Black;
     }
     &-angle{
       display: inline-block;
@@ -142,6 +145,7 @@ a.mypage__tabs-list,a.mypage__item-to-show{
         height: 55px;
         background: $Gray;
         text-align: center;
+        color: $Black;
         &:hover{
           background: $LightGray;
         }

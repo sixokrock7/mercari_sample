@@ -1,0 +1,183 @@
+a{
+  text-decoration: none;
+}
+
+body{
+  background:$LightGray;
+}
+
+a.mypage__tabs-list,a.mypage__item-to-show{
+  color:black;
+}
+
+.display-none{
+  display: none;
+}
+
+.l-container{
+  margin: 40px auto 0;
+  padding:40px 0;
+  max-width: 1020px;
+  @include clearfix;
+}
+
+.display-none{
+  display: none;
+}
+.tab-active{
+  background: $White;
+  border-top: 2px solid #ea352d;
+}
+
+.mypage{
+  float: right;
+  @include clearfix;
+  text-decoration: none;
+  &_contents{
+    max-width: 700px;
+    margin: 0 auto 40px;
+    background:$White;
+  }
+  &_top{
+    &:hover{
+      opacity:.8;
+    }
+    &__backimage{
+      padding-top: 40px;
+      height: 160px;
+      background-image: image-url("user-bg.jpg");
+    }
+    &__profile_icon{
+      @include user-icon(60px);
+    }
+    &__profile{
+      text-align: center;
+      margin: 10px;
+    }
+  }
+  &__content{
+    &-box{
+      margin: 0 auto;
+    }
+    &-head{
+      padding: 25px 18px;
+      width:100%;
+      background-color:#FAFAFA;
+      float:left;
+    }
+    &-label{
+      font-weight: bold;
+      @include clearfix;
+    }
+  }
+  &__tabs{
+    &-top{
+      background: $Gray;
+      float:left;
+      width:100%;
+    }
+    &-bottom{
+      background: $Gray;
+      float:left;
+      width:100%;
+    }
+    &-list{
+      float: left;
+      text-align: center;
+      width: 50%;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      outline: none;
+      padding: 0;
+      font-weight: bold;
+      font-size: 15px;
+      line-height: 74px;
+      &:hover{
+      color:rgba(0,0,0,0.6);
+      }
+    }
+    &-listing-list {
+      @extend .mypage__tabs-list;
+      width:33.3%;
+      &:hover {
+        @extend .mypage__tabs-list:hover;
+      }
+    }
+    &-text{
+      line-height: 74px;
+      text-align: center;
+      padding:auto 0;
+    }
+  }
+  &__item{
+    @include mypage-content-parts;
+    padding: 20px;
+    height: 95px;
+    width: 100%;
+    display: inline-block;
+    &-figure{
+      margin-right:18px;
+      float: left;
+      height:95px;
+      .item-figure{
+        width:48px;
+      }
+    }
+    &-text{
+      line-height: 18px;
+    }
+    &-time{
+      color: gray;
+    }
+    &-angle{
+      display: inline-block;
+      @include mypage-content-angle;
+    }
+    &-to-index{
+      padding: 16px 20px;
+      background: $White;
+      margin-bottom: 40px;
+      .link-to-item{
+        height: 55px;
+        background: $Gray;
+        text-align: center;
+        &:hover{
+          background: $LightGray;
+        }
+        h4.view-index{
+          padding: 20px;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+  &__no-item{
+    width:100%;
+    margin-bottom: 40px;
+    background:$White;
+    font-weight: bold;
+    color: $Gray;
+    padding:40px 0 60px;
+    float:left;
+    &-top{
+      background:gray;
+    }
+    &-icon{
+      background-image: image-url("logo-gray-icon.svg");
+      height: 80px;
+      width: 70px;
+      margin:0 auto 20px;
+      }
+    &-text{
+      text-align: center;
+    }
+  }
+}
+
+.mypage__item-list-top li.hidden{
+  display:none;
+}
+.mypage__item-list-bottom li.hidden{
+  display:none;
+}

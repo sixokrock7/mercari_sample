@@ -1,0 +1,14 @@
+= render 'shared/global_header'
+
+%main.white
+  = image_tag "/assets/mercari_content_pc.png", alt: "メルカリ", class: "section owl-carousel top-carousel owl-loaded owl-drag"
+  %section.pickup-container
+    %h2.pickup-head
+      %a.pickup-head-name ピックアップカテゴリー
+    = render 'contents'
+  %section.pickup-container
+    %h2.pickup-head
+      %a.pickup-head-name ピックアップブランド
+    = render 'contents'
+
+= render 'shared/global_footer'

@@ -1,0 +1,372 @@
+.single-container {
+  background-color: $LightGray;
+  height:100vh;
+  .single-header {
+    text-align: center;
+    height: 98px;
+    padding: 15px 0 0;
+    h1 {
+      margin: 12px;
+      text-align:center;
+      img {
+        height:33px;
+        vertical-align: middle;
+        width:120px;
+        &:hover{
+          opacity:.6;
+        }
+      }
+    }
+  }
+
+  .single-main {
+    margin: 0 auto;
+
+    .login-panel {
+      background-color: $White;
+      max-width: 392px;
+      margin: 0 auto;
+      padding: 40px 32px;
+
+      .login-no-account {
+        border-bottom: 1px solid $WhiteGray;
+        text-align:center;
+        font-size: 14px;
+        padding-bottom: 40px;
+        p {
+          margin: 0;
+          padding-bottom: 10px;
+        }
+      }
+      .login-form-top {
+        padding:24px 0;
+        margin: 0 auto;
+        width: 328px;
+        i {
+          position: absolute;
+          left: 20px;
+          top: 30%;
+          font-size: 22px;
+        }
+      }
+      .login-form-bottom {
+        width: 328px;
+        margin: 0 auto;
+        padding-top: 24px;
+      }
+    }
+    a {
+      color: $Blue;
+      text-decoration:none;
+      font-size: 14px;
+    }
+    .signup-panel {
+      background-color: $White;
+      max-width: 700px;
+      margin:0 auto;
+      position: relative;
+      top: 20px;
+      &__head {
+        border-width: 780px;
+        border-bottom:1px solid $LightGray;
+        font-size: 22px;
+        font-weight: bold;
+        margin: 0;
+        padding: 40px 16px;
+        text-align: center;
+        &-phone {
+          border-width: 780px;
+          border-bottom:1px solid $LightGray;
+          font-size: 22px;
+          font-weight: bold;
+          margin: 0;
+          padding: 10px;
+          text-align: center;
+        }
+      }
+      &__inner {
+        padding:64px 0;
+        width: 328px;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+.single-container {
+  .single-header {
+    h1 {
+      display: inline-block;
+      img {
+        width: 185px;
+        height: 49px;
+        text-align:top;
+      }
+    }
+    .signup-bar {
+      display: inline-block;
+      vertical-align: middle;
+      .progress-bar {
+        list-style-type:none;
+        text-align:center;
+        li {
+          display:inline-block;
+          min-width: 60px;
+          font-size: 12px;
+          color: $DarkGray;
+          padding: 15px;
+          margin-bottom: 15px;
+          .circle {
+            position:relative;
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background: $Gray;
+            border-radius: 50px;
+            top: 10px;
+            &:after , &:before{
+              content: '';
+              border-top: solid 2px $Gray;
+              z-index: 2;
+              position: absolute;
+              bottom: 5px;
+              width: 60px;
+            }
+            &:before {
+              right: 50%;
+            }
+            &:after {
+              left: 50%;
+            }
+            &--first {
+              @extend .circle;
+              &:before {
+                border:none;
+              }
+            }
+            &--last {
+              @extend .circle;
+              &:after {
+                border:none;
+              }
+            }
+            &--red {
+              @extend .circle;
+              background-color: $Red;
+              &:before {
+                border-color: $Red;
+              }
+            }
+            &--through {
+              &:after{
+                border-color: $Red;
+                left: 50%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .single-footer {
+    height:250px;
+    padding: 60px 0;
+    width: 100%;
+    &-logo {
+      margin: 40px auto 0;
+      height:65px;
+      width:80px;
+    }
+    img {
+      display: block;
+      margin: 0 auto;
+      vertical-align: middle;
+    }
+    p {
+      text-align: center;
+    }
+    .copy {
+      margin: 0 auto;
+      width: 100px;
+      font-size: 11px;
+      position: relative;
+      top: 10px;
+      right: 10px;
+    }
+    nav {
+      ul {
+        list-style-type: none;
+        text-align:center;
+        li {
+          display:inline-block;
+        }
+        a {
+          color: $Black;
+          text-decoration: none;
+          font-size: 12px;
+          padding: 0px 5px 0px;
+        }
+      }
+    }
+  }
+}
+.form {
+  width: 328px;
+  &-group {
+    width: 328px;
+    margin: 0 auto;
+    padding: 30px 0px 25px;
+    label {
+      font-weight: 600;
+      font-size: 14px;
+    }
+    &-require {
+      width: 40px;
+      height: 30px;
+      background-color: $Rouge;
+      color: $White;
+      padding: 3px 4px;
+      border-radius: 2px;
+      font-size: 12px;
+    }
+    &-any {
+      width: 40px;
+      height: 30px;
+      background-color: $Gray;
+      color: $White;
+      padding: 3px 4px;
+      border-radius: 2px;
+      font-size: 12px;
+    }
+  }
+  &-panel {
+    padding: 34px 0px 100px;
+  }
+  &__input {
+    font-size: 14px;
+    width: 296px;
+    height: 28px;
+    border-radius: 4px;
+    border: 1px solid $Gray;
+    padding: 10px 16px 8px;
+    margin: 10px 0px;
+    &-exp {
+      font-size: 16px;
+      width: 100px;
+      height: 28px;
+      border-radius: 4px;
+      border: 1px solid $Gray;
+      padding: 10px 16px 8px;
+      margin: 10px 0px;
+    }
+  }
+  &__select {
+    font-size: 16px;
+    width: 330px;
+    height: 48px;
+    border-radius: 4px;
+    border: 1px solid $Gray;
+    margin: 10px 0px;
+  }
+  .input-default {
+    border-radius: 6px;
+    display: inline-block;
+    width: 292px;
+    max-height: 48px;
+    padding: 10px 16px 8px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
+.sms-notice {
+  margin: 8px 0px 0px;
+  line-height: 1.5;
+  font-size: 14px;
+}
+.sms-desc {
+  float: right;
+  margin: 30px 0px;
+}
+.cvc-notice {
+  color: $LightBlue;
+  position: relative;
+  left: 160px;
+  font-size: 14px;
+  margin-bottom: 50px;
+  small {
+    border: 1px solid $LightBlue;
+    border-radius: 50%;
+    color: $White;
+    background-color: $LightBlue;
+  }
+}
+.done {
+  text-align: center;
+  line-height: 1.5;
+  button {
+    margin-top: 40px;
+  }
+}
+.btn {
+  color: $White;
+  font-size: 14px;
+  line-height: 48px;
+  margin: 16px 0 0 auto 0;
+  text-align: center;
+  width: 328px;
+  &__default {
+
+  }
+  &__half {
+    @extend .btn;
+    float: right;
+    width:45%;
+  }
+  &__blue {
+    background-color: $Blue;
+    line-height: 40px;
+  }
+  &__red {
+    background-color: $Rouge;
+    width: 328px;
+    margin-bottom: 40px;
+    &:active{
+      background: gray;
+    }
+  }
+  &__soldout{
+    background-color: $Gray;
+    font-size: 24px;
+    line-height: 60px;
+    margin-top: 10px;
+    font-weight: bold;
+    display: block;
+  }
+  &__mail {
+    background-color: $WhiteGray;
+    color: $Black;
+    margin-bottom: 16px;
+    position: relative;
+  }
+  &__sns {
+    position:relative;
+    &--facebook{
+      background-color: $Navy;
+    }
+    &--google{
+      background-color: $Rouge;
+      margin-top: 16px;
+    }
+  }
+}
+.sms-button {
+  margin: 40px 0px 0px;
+}
+.icon {
+  &-mail {
+    color: $Gray;
+  }
+  position: absolute;
+  left:16px;
+  top:30%;
+  font-size:18px;
+}

@@ -10,6 +10,7 @@ class User < ApplicationRecord
   validates :phone_number, presence: true
 
   has_many :authorizations
+  has_one :address, dependent: :destroy
 
   protected
 

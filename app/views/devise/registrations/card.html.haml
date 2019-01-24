@@ -1,0 +1,53 @@
+.single-container
+  %header.single-header
+    = render 'devise/shared/header'
+    %nav.signup-bar
+      %ul.progress-bar
+        %li
+          会員情報
+          %br
+          .circle--first.circle--red.circle--through
+        %li
+          電話番号認証
+          %br
+          .circle.circle--red.circle--through
+        %li
+          住所入力
+          %br
+          .circle.circle--red.circle--through
+        %li
+          支払い方法
+          %br
+          .circle.circle--red
+        %li
+          完了
+          %br
+          .circle--last
+
+  %main.single-main
+    .signup-panel
+      %h2.signup-panel__head 支払い方法
+      = form_for "" do |f|
+        .form-group
+          = f.label :card_number, "カード番号"
+          %span.form-group-require 必須
+          = f.text_field :card_number, autofocus: true, placeholder: "半角数字のみ", class: "form__input"
+          = image_tag "credit_logo.png", class: "credit_logo"
+        .form-group
+          = f.label :expiration_date, "有効期限"
+          %span.form-group-require 必須
+          %br
+          = f.number_field :expiration_date, autofocus: true, min: "1", max: "12", class: "form__input-exp"
+          月
+          %br
+          = f.number_field :expiration_date, autofocus: true, min: "1990", max: "2019", class: "form__input-exp"
+          年
+        .form-group
+          = f.label :security_code, "セキュリティコード"
+          %span.form-group-require 必須
+          = f.text_field :security_code, autofocus: true, placeholder: "カード背面4桁もしくは3桁の番号", class: "form__input"
+          %p.cvc-notice
+            %small ？
+            カード裏面の番号とは？
+          = f.submit "次へ進む", class: "btn btn__red"
+    = render "devise/shared/footer"

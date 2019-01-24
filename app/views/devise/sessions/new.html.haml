@@ -16,10 +16,8 @@
           Googleでログイン
       .login-form-bottom
         = form_for(@resource, as: resource_name, url: session_path(resource_name)) do |f|
-          .form-group
-            = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class: "input-default"
-          .form-group
-            = f.password_field :password, autocomplete: "current-password", placeholder: "パスワード", class: "input-default"
+          = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class: "input-default form__input"
+          = f.password_field :password, autocomplete: "current-password", placeholder: "パスワード", class: "input-default form__input"
           = f.submit "ログイン", class: "btn btn__red"
         = link_to "パスワードをお忘れの方", new_password_path(resource_name)
 

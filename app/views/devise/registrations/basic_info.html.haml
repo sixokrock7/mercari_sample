@@ -1,0 +1,50 @@
+.single-container
+  %header.single-header
+    = render 'devise/shared/header'
+    %nav.signup-bar
+      %ul.progress-bar
+        %li
+          会員情報
+          %br
+          .circle--first.circle--red
+        %li
+          電話番号認証
+          %br
+          .circle
+        %li
+          住所入力
+          %br
+          .circle
+        %li
+          支払い方法
+          %br
+          .circle
+        %li
+          完了
+          %br
+          .circle--last
+
+  %main.single-main
+    .signup-panel
+      %h2.signup-panel__head 会員情報入力
+      = devise_error_messages!
+      .signup-panel__inner
+        = form_for(@user, url: sign_up_sms_confirmation_path , html: { id:"form", method: :post}) do |f|
+          .form-group
+            = f.label :nickname, "ニックネーム"
+            %span.form-group-require 必須
+            = f.text_field :nickname, autofocus: true, placeholder: "例)メルカリ太郎", required:"", class: "form__input"
+          .form-group
+            = f.label :email, "メールアドレス"
+            %span.form-group-require 必須
+            = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "PC・携帯どちらでも可", required:"", class: "form__input"
+          .form-group
+            = f.label :password, "パスワード"
+            %span.form-group-require 必須
+            = f.password_field :password, autocomplete: "new-password", placeholder: "6文字以上", required:"", minlength: "6", class: "form__input"
+          .form-group
+            = f.label :password_confirmation, "パスワード（確認）"
+            %span.form-group-require 必須
+            = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "6文字以上", required:"", class: "form__input"
+          = f.submit "次へ進む", class: "btn btn__red"
+    = render "devise/shared/footer"

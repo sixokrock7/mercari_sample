@@ -1,0 +1,19 @@
+= render 'shared/global_header'
+
+.l-container
+  = render 'mypages/side_bar';
+  .profile
+    = form_for(@user) do |f|
+      %h4.profile__title プロフィール
+      .profile__box.clearfix
+        .profile__box-name.clearfix
+          .field-image
+            = image_tag "/assets/member_photo_noimage_thumb.png", alt: "mercari", class: "image"
+          .field-name-input
+            = f.text_field :nickname, class:"name-input", autofocus: true, placeholder:"例) メルカリ太郎"
+      .profile__intro-box
+        = f.text_area :profile, class:"text-input", autofocus: true, placeholder: "例) こんにちは☆ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので商品や発送方法などご質問ありましたらお気軽にどうぞ♪"
+        .actions
+          = f.submit "変更する", class: 'btn-red'
+
+= render 'shared/global_footer'

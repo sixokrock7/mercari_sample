@@ -42,6 +42,13 @@
         padding:24px 0;
         margin: 0 auto;
         width: 328px;
+        .desc {
+          text-align: center;
+          font-weight: bold;
+          font-size: 14px;
+          position: relative;
+          bottom: 25px;
+        }
         i {
           position: absolute;
           left: 20px;

@@ -4,9 +4,10 @@ Rails.application.routes.draw do
     registration: "users/registrations",
     passwords: "users/passwords",
     omniauth_callbacks: "users/omniauth_callbacks"
-  }
+  }, skip: [:sessions]
   devise_scope :user do
-    get "sign_in" => "devise/sessions#new"
+    get "users/sign_in" => "users/sessions#new"
+    get "users/sign_in/identification" => "users/sessions#identification"
     get "/sign_up/basic_info" => "users/registrations#basic_info"
     get "/sign_up/sms_confirmation" => "users/registrations#sms_confirmation"
     get "/sign_up/address" => "users/registrations#address"

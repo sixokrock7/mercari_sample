@@ -5,6 +5,10 @@ class Users::SessionsController < Devise::SessionsController
     @resource = User.new
   end
 
+  def identification
+    @resource = User.new
+  end
+
   protected
 
   def after_sign_up_path_for(resource)

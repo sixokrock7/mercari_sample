@@ -3,11 +3,11 @@
 
   %main.single-main
     .login-panel
-      .login-no-account
-        %p アカウントをお持ちでない方はこちら
-        = link_to "" do
-          %button.btn.btn__blue 新規会員登録
       .login-form-top
+        .desc
+          あなたの情報を守るために
+          %br
+          再度ログインを行なってください。
         %button.btn.btn__sns.btn__sns--facebook
           = fa_icon "facebook-square", class: "sns-icon"
           Facebookでログイン

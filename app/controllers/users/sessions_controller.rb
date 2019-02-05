@@ -1,17 +1,24 @@
 class Users::SessionsController < Devise::SessionsController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
 
   def new
-    @resource = User.new
+    super
+  end
+
+  def create
+    super
   end
 
   def identification
-    @resource = User.new
+    super
+  end
+
+  def destroy
   end
 
   protected
 
-  def after_sign_up_path_for(resource)
+  def after_sign_in_path_for(resource)
     new_user_session_path
   end
 

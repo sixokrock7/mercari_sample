@@ -1,0 +1,12 @@
+.mypage
+  .mypage_contents
+    %h4.profile__title 支払い方法
+    .credit
+      %p.credit__text クレジットカード一覧
+      .credit__list
+        = link_to "", method: :get, "style": "color:white;" do
+          .btn.btn__red
+            = fa_icon "credit-card"
+            クレジットカードを追加する
+        .payment-desc
+          支払い方法について >

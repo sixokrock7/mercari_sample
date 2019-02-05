@@ -177,6 +177,32 @@ a.mypage__tabs-list,a.mypage__item-to-show{
       text-align: center;
     }
   }
+  .profile__title {
+    border-bottom: 1px solid $WhiteGray;
+    padding: 15px 0px
+  }
+  .credit {
+    padding: 64px 75px;
+    height: 180px;
+    &__text {
+      font-size: 15px;
+      font-weight: bold;
+      position: relative;
+      left: 120px;
+    }
+    &__list {
+      padding: 20px 0px 0px 110px;
+      border-bottom: 1px solid $WhiteGray;
+      width: 450px;
+    }
+    .payment-desc {
+      float: right;
+      color: $LightBlue;
+      position: relative;
+      top: 50px;
+      font-size: 14px;
+    }
+  }
   &__logout {
     height: 179px;
     padding-left: 190px;

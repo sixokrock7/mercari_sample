@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   resources :mypages, controller: :users, only: [:show] do
     member do
       get "logout"
+      get "card"
     end
   end
 end

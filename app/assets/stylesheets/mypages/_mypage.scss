@@ -177,6 +177,21 @@ a.mypage__tabs-list,a.mypage__item-to-show{
       text-align: center;
     }
   }
+  &__logout {
+    height: 179px;
+    padding-left: 190px;
+    &-btn {
+      text-align: center;
+      position: relative;
+      top: 65px;
+      padding-top: 20px;
+      width: 320px;
+      height: 35px;
+      font-size: 14px;
+      background-color: $Red;
+      color: $White;
+    }
+  }
 }
 
 .mypage__item-list-top li.hidden{

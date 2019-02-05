@@ -72,6 +72,6 @@
     =link_to "",class: "sidebar__content" do
       %h4.sidebar__content-name 電話番号の確認
       %i.sidebar__content-angle
-    =link_to "",class: "sidebar__content #{"active" if params[:action] == "destroy"}" do
+    =link_to logout_mypage_path, method: :get, class: "sidebar__content #{"active" if params[:action] == "logout"}" do
       %h4.sidebar__content-name ログアウト
       %i.sidebar__content-angle

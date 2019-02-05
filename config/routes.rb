@@ -25,5 +25,9 @@ Rails.application.routes.draw do
     resources :addresses do
     end
   end
-  resources :mypages, controller: :users, only: [:show]
+  resources :mypages, controller: :users, only: [:show] do
+    member do
+      get "logout"
+    end
+  end
 end

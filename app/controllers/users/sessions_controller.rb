@@ -13,7 +13,11 @@ class Users::SessionsController < Devise::SessionsController
     super
   end
 
+  def logout
+  end
+
   def destroy
+    super
   end
 
   protected

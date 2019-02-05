@@ -13,7 +13,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def address
     @user = User.new(user_params)
-    # binding.pry
   end
 
   def card

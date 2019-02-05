@@ -15,13 +15,14 @@ ActiveRecord::Schema.define(version: 2019_01_23_065052) do
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "first_name", null: false
     t.string "last_name", null: false
-    t.string "firstn_name_kana", null: false
+    t.string "first_name_kana", null: false
     t.string "last_name_kana", null: false
     t.string "postal_code", null: false
     t.integer "prefecture_code", null: false
     t.string "city", null: false
     t.string "block_number", null: false
     t.string "building_name"
+    t.bigint "phone_number"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -46,16 +47,13 @@ ActiveRecord::Schema.define(version: 2019_01_23_065052) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "nickname", null: false
-    t.integer "phone_number", null: false
-    t.string "first_name", null: false
-    t.string "last_name", null: false
-    t.string "first_name_kana", null: false
-    t.string "last_name_kana", null: false
-    t.integer "birth_year", null: false
-    t.integer "birth_month", null: false
-    t.integer "birth_day", null: false
+    t.bigint "phone_number", null: false
+    t.integer "birth_year"
+    t.integer "birth_month"
+    t.integer "birth_day"
     t.string "icon_image"
     t.string "background_image"
+    t.string "credit_card_token", default: ""
     t.text "profile"
     t.integer "point"
     t.index ["email"], name: "index_users_on_email", unique: true

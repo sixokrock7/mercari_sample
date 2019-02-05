@@ -27,8 +27,13 @@
   %main.single-main
     .signup-panel
       %h2.signup-panel__head-phone 電話番号の確認
-      = form_for "" do |f|
+      = form_for(@user, url: sign_up_address_path) do |f|
         .form-group.form-panel
+          = f.hidden_field :nickname, value: @user.nickname
+          = f.hidden_field :email, value: @user.email
+          = f.hidden_field :password, value: @user.password
+          = f.hidden_field :password_confirmation, value: @user.password_confirmation
+          = f.hidden_field :phone_number, value: @user.phone_number
           = f.label :phone_number, "携帯電話の番号"
           = f.telephone_field :phone_number, autofocus: true, autocomplete: "email", placeholder: "携帯電話の番号を入力", class: "form__input"
           %p.sms-notice

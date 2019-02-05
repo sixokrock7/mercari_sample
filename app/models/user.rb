@@ -11,6 +11,13 @@ class User < ApplicationRecord
 
   has_many :authorizations
   has_one :address, dependent: :destroy
+  accepts_nested_attributes_for :address, update_only: true
+
+  def cards
+    Payjp.api_key = "sk_test_239caee23576c2acc2d0eec8"
+    customer = Payjp::Customer.retrieve(self.pay.customer)
+    customer.cards.data
+  end
 
   protected
 

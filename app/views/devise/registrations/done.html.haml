@@ -32,7 +32,7 @@
         ありがとうございます。
         %br
         会員登録が完了しました。
-        %button.btn.btn__red
+        = link_to root_path, class: "btn btn__red" do
           メルカリをはじめる
 
   = render "devise/shared/footer"

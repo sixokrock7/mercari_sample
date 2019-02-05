@@ -30,6 +30,10 @@
       = devise_error_messages!
       .signup-panel__inner
         = form_for(@user, url: sign_up_sms_confirmation_path , html: { id:"form", method: :post}) do |f|
+          = f.hidden_field :nickname, value: @user.nickname
+          = f.hidden_field :email, value: @user.email
+          = f.hidden_field :password, value: @user.password
+          = f.hidden_field :password_confirmation, value: @user.password_confirmation
           .form-group
             = f.label :nickname, "ニックネーム"
             %span.form-group-require 必須

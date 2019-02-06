@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_23_065052) do
+ActiveRecord::Schema.define(version: 2019_02_05_072452) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "first_name", null: false
@@ -38,6 +38,63 @@ ActiveRecord::Schema.define(version: 2019_01_23_065052) do
     t.index ["user_id"], name: "index_authorizations_on_user_id"
   end
 
+  create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+  end
+
+  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "product_id"
+    t.integer "lft"
+    t.integer "rgt"
+    t.index ["product_id"], name: "index_categories_on_product_id"
+  end
+
+  create_table "product_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "image", null: false
+    t.bigint "product_id"
+    t.index ["product_id"], name: "index_product_images_on_product_id"
+  end
+
+  create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "detail"
+    t.integer "price", null: false
+    t.string "status", null: false
+    t.bigint "seller_id", null: false
+    t.bigint "buyer_id", null: false
+    t.bigint "brand_id", null: false
+    t.bigint "size_id", null: false
+    t.integer "like_count", default: 0
+    t.string "delivery_date"
+    t.bigint "sell_status_id", null: false
+    t.bigint "product_image_id"
+    t.bigint "category_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["brand_id"], name: "index_products_on_brand_id"
+    t.index ["buyer_id"], name: "index_products_on_buyer_id"
+    t.index ["category_id"], name: "index_products_on_category_id"
+    t.index ["product_image_id"], name: "index_products_on_product_image_id"
+    t.index ["sell_status_id"], name: "index_products_on_sell_status_id"
+    t.index ["seller_id"], name: "index_products_on_seller_id"
+    t.index ["size_id"], name: "index_products_on_size_id"
+  end
+
+  create_table "sell_statuses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "status", null: false
+  end
+
+  create_table "shippings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "shipping_burden", null: false
+    t.string "shipping_method", null: false
+    t.string "shipping_area", null: false
+    t.string "delivery_date", null: false
+  end
+
+  create_table "sizes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "size", null: false
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -62,4 +119,5 @@ ActiveRecord::Schema.define(version: 2019_01_23_065052) do
 
   add_foreign_key "addresses", "users"
   add_foreign_key "authorizations", "users"
+  add_foreign_key "product_images", "products"
 end

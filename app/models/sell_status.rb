@@ -1,0 +1,2 @@
+class SellStatus < ApplicationRecord
+end

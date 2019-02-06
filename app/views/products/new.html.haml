@@ -1,0 +1,155 @@
+.single-container
+  %header.single-header
+    = render 'devise/shared/header'
+
+  .l-container
+    .signup-panel__inner
+      = form_for(@product, url: "", html: {multiple: true,method: :post}) do |f|
+        .sell__contents
+          %h2.l-single-head 商品の情報を入力
+        - if flash[:alert]
+          .sell__contents--alert
+            = flash[:alert]
+        - if @product.errors.any?
+          .sell__contents--alert
+            = "#{@product.errors.count}件のエラーがあります。"
+            %p 画像は再度選択をしてください。
+        .sell__contents
+          %h3.sell__form--title
+            出品画像
+            %span.form-require.sell 必須
+          %p.sell__contents--comment 最大10枚までアップロードできます
+          .sell__dropbox--container
+            = f.fields_for :images do |i|
+              %ul.sell__dropbox--uploader
+                = i.label :image1, class: 'sell__dropbox--uploader-container' do
+                  .visible-pc#drop-text
+                    %span ドラッグアンドドロップ
+                    %br
+                    %span またはクリックしてファイルをアップロード
+
+        .sell__contents
+          = f.label :name do
+            %h4.sell__contents--sub-title
+              商品名
+              %span.form-require.sell 必須
+            = f.text_field :name, placeholder: "商品名（必須40文字まで)",class: "sell__form--text"
+          .sell__contents--item-desc
+            = f.label :detail do
+              %h4.sell__contents--sub-title
+                商品の説明
+                %span.form-require.sell 必須
+              = f.text_area :detail, placeholder: "商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。",class: "sell__form--text-area"
+        .sell__contents
+          %h3.sell__contents--label 商品の詳細
+          .sell__contents--form-box
+            = f.label :category_id, class: "sell__form--select" do
+              %h4.sell__contents--sub-title.category-title
+                カテゴリー
+                %span.form-require.sell 必須
+              .select-box
+                = f.collection_select :category_id, Category.all, :id, :name, {prompt: "---"}, {class: "form-select_parent"}
+              .select-box.hide-child-box
+                = f.select :category_id, {}, {prompt: "---"}, {class: "form-select_child"}
+              .select-box.hide-g_child-box
+                = f.select :category_id, {}, {prompt: "---"}, {class: "form-select_g_child"}
+            .hide-size-box
+              = f.label :size_id do
+                %h4.sell__contents--sub-title
+                  サイズ
+                  %span.form-require.sell 必須
+                .select-box
+                  = f.collection_select :size_id, Size.all, :id, :size, prompt: "---"
+            .sell__contents--box.third-hide-wrap
+              =f.fields_for :brand_attributes, Brand.all do |b|
+                .sell__contents--brand
+                  = b.label :name do
+                    %h4.sell__contents--sub-title
+                      ブランド
+                      %span.form-arbitrary.sell 任意
+                  = b.text_field :name, placeholder: "例）シャネル",autocomplete:"off", class: "select-box input-brand"
+                  %ul.brand-search-result
+            .sell__contents--box
+              = f.label :status, class: "sell__form--select" do
+                %h4.sell__contents--sub-title
+                  商品の状態
+                  %span.form-require.sell 必須
+                .select-box
+                  = f.select :status, ["新品未使用","未使用に近い","目立った傷や汚れなし","やや傷や汚れあり","傷や汚れあり","全体的に状態が悪い"], prompt: "---"
+        .sell__contents
+          %h3.sell__contents--label
+            配送について
+            =link_to "", class: "form-question" do
+              ?
+          .sell__contents--form-box
+            = f.fields_for :shipping do |i|
+              = i.label :shipping_burden, class: "sell__form--select" do
+                %h4.sell__contents--sub-title.shipping-title
+                  配送料の負担
+                  %span.form-require.sell 必須
+                .select-box
+                  = i.select :shipping_burden, ["着払い(購入者負担)","送料込み(出品者負担)"], prompt: "---"
+              = i.label :shipping_method, class: "sell__form--select" do
+                %h4.sell__contents--sub-title
+                  配送の方法
+                  %span.form-require.sell 必須
+                .select-box
+                  = i.select :shipping_method, ["未定","クロネコヤマト","ゆうパック","ゆうメール"], prompt: "---"
+              = i.label :prefecture, class: "sell__form--select" do
+                %h4.sell__contents--sub-title
+                  発送元の地域
+                  %span.form-require.sell 必須
+                .select-box
+                  = i.collection_select :prefecture, JpPrefecture::Prefecture.all, :code, :name, prompt: "---"
+              = i.label :delivery_date, class: "sell__form--select" do
+                %h4.sell__contents--sub-title
+                  発送までの日数
+                  %span.form-require.sell 必須
+                .select-box
+                  = i.select :delivery_date,["1〜2日で発送","2〜3日で発送","4〜7日で発送"], prompt: "---"
+        .sell__contents
+          %h3.sell__contents--label
+            販売価格(300〜9,999,999)
+            =link_to "", class: "form-question" do
+              ?
+          .sell__contents--box
+            = f.label :price do
+              .sell__contents--form-right
+                .sell__contents--price
+                  .sell__contents--price-title 価格
+                  %span.form-require.sell 必須
+                  .sell__contents--price-input
+                    %h5 ¥
+                    = f.number_field :price, placeholder: "例）300",min:"300", max:"9999999",class: "sell__contents--price-box"
+                .sell__contents--price
+                  %p.sell__contents--price-text
+                    販売手数料 (10%)
+                  .sell__contents--price-num -
+                .sell__contents--price
+                  %h3.sell__contents--profits
+                    販売利益
+                  .sell__contents--price-num -
+
+        .sell__contents
+          %p.sell__contents--caution
+            = link_to "", class: "link-text" do
+              禁止されている出品
+            、
+            = link_to "", class: "link-text" do
+              行為
+            を必ずご確認ください。
+            %br<
+            またブランド品でシリアルナンバー等がある場合はご記載ください。
+            = link_to "", class: "link-text" do
+              偽ブランドの販売
+            は犯罪であり処罰される可能性があります。
+            %br<
+            また、出品をもちまして
+            = link_to "", class: "link-text" do
+              加盟店規約
+            に同意したことになります。
+          .sell__contents--caution-space
+          = f.submit "出品する", class: "btn btn__red btn-exhibit"
+          = link_to mypage_path(current_user) do
+            %p.btn-gray もどる
+    = render "devise/shared/footer"

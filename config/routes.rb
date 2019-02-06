@@ -31,4 +31,5 @@ Rails.application.routes.draw do
       get "card"
     end
   end
+  resources :products, only: [:new]
 end

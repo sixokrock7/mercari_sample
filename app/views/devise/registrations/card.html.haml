@@ -27,26 +27,26 @@
   %main.single-main
     .signup-panel
       %h2.signup-panel__head 支払い方法
-      = form_tag(sign_up_done_path, method: "get", id: "charge-form") do
+      = form_tag(sign_up_done_path(@user), method: "post", id: "charge-form") do
         %script{src: "https://checkout.pay.jp/", "data-key": "pk_test_2f7bcffdaa124c05fc4a6e14"}
         .form-group
           = label_tag :number, "カード番号"
           %span.form-group-require 必須
-          = text_field_tag :number, "", {autofocus: true, placeholder: "半角数字のみ", class: "form__input"}
+          = text_field_tag :number, "", {autofocus: true, placeholder: "半角数字のみ", class: "form__input number"}
           = image_tag "credit_logo.png", class: "credit_logo"
         .form-group
           = label_tag :exp_month, "有効期限"
           %span.form-group-require 必須
           %br
-          = number_field_tag :exp_month, "", {autofocus: true, min: "1", max: "12", class: "form__input-exp"}
+          = number_field_tag :exp_month, "", {autofocus: true, min: "1", max: "12", class: "form__input-exp exp_month"}
           月
           %br
-          = number_field_tag :exp_year, "", {autofocus: true, min: "1990", max: "2020", class: "form__input-exp"}
+          = number_field_tag :exp_year, "", {autofocus: true, min: "1990", max: "2020", class: "form__input-exp exp_year"}
           年
         .form-group
-          = label_tag :cvc, "セキュリティコード"
+          = label_tag :security_code, "セキュリティコード"
           %span.form-group-require 必須
-          = text_field_tag :security_code, "", {autofocus: true, placeholder: "カード背面4桁もしくは3桁の番号", class: "form__input"}
+          = text_field_tag :security_code, "", {autofocus: true, placeholder: "カード背面4桁もしくは3桁の番号", class: "form__input security_code"}
           %p.cvc-notice
             %small ？
             カード裏面の番号とは？

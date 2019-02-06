@@ -16,16 +16,21 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def card
-    Payjp.api_key = "sk_test_239caee23576c2acc2d0eec8"
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
+    @user = User.find(params[:format])
 
   end
 
   def create
+    super
     @user = User.create(user_params)
-    render :card
+    session[:user_id] = @user.id
   end
 
   def done
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
+    @user = User.find(params[:format])
+    @user.update(credit_card_token: params[:payjpToken])
   end
 
   private
@@ -37,7 +42,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def after_sign_up_path_for(resource)
-    new_user_registration_path
+    sign_up_card_path(resource)
+  end
+
+  def current_user
+    @current_user = User.find_by(id: session[:user_id])
   end
 
 end

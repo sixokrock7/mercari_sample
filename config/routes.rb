@@ -14,9 +14,9 @@ Rails.application.routes.draw do
     get "/sign_up/basic_info" => "users/registrations#basic_info"
     post "/sign_up/sms_confirmation" => "users/registrations#sms_confirmation"
     post "/sign_up/address" => "users/registrations#address"
-    post "/sign_up/card" => "users/registrations#card"
+    get "/sign_up/card" => "users/registrations#card"
     post "/sign_up/completed" => "users/registrations#create"
-    get "sign_up/done" => "users/registrations#done"
+    post "sign_up/done" => "users/registrations#done"
   end
 
   root "tops#index"

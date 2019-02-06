@@ -1,0 +1,313 @@
+.l-single-head {
+  padding: 0px 16px;
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+}
+.sell{
+  &__contents{
+    max-width: 700px;
+    padding: 40px 40px;
+    background:$White;
+    margin: 0 auto;
+    border-bottom: solid thin $WhiteGray;
+    @include clearfix;
+     &__item-desc {
+      max-width: 700px;
+      padding: 40px 40px;
+      background:$White;
+      margin:0 auto;
+    }
+    .form-require {
+      width: 40px;
+      height: 30px;
+      background-color: $Rouge;
+      color: $White;
+      padding: 3px 4px;
+      border-radius: 2px;
+      font-size: 12px;
+    }
+    &--form-box {
+      position: relative;
+      left: 265px;
+      .category-title {
+        position: relative;
+        right: 70px;
+      }
+      .shipping-title {
+        position: relative;
+        right: 95px;
+      }
+    }
+    &--form-right {
+      width: 400px;
+      position: relative;
+      left: 265px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+    &--box-price {
+      position: relative;
+      right: 175px;
+    }
+    &--sub-title{
+      font-weight: bold;
+      font-size: 14px;
+      .form-arbitrary {
+        border: 1px solid $Gray;
+        color: $White;
+        background-color: $Gray;
+        font-weight: bold;
+        padding: 2px;
+        border-radius: 2px;
+        font-size: 13px;
+      }
+    }
+    &--price {
+      width: 430px;
+      font-size: 14px;
+      margin: 13px 0;
+      font-weight: bold;
+      &-title {
+        position: relative;
+        right: 195px;
+      }
+      &:not(:last-child) {
+        border-bottom: 1px solid $Gray;
+        padding-bottom: 40px;
+      }
+      span {
+        position: relative;
+        left: 38px;
+        bottom: 15px;
+      }
+      h5 {
+        font-weight: normal;
+        font-size: 12px;
+        position: relative;
+        left: 240px;
+        bottom: 20px;
+      }
+      &-box {
+        width: 140px;
+        padding: 10px 16px 8px;
+        font-size: 16px;
+        color: $Gray;
+        height: 30px;
+        line-height: 1.5;
+        border-radius: 4px;
+        border: 1px solid $Gray;
+        float: right;
+        position: relative;
+        bottom: 50px;
+      }
+      &-text {
+        padding-top: 15px;
+        font-weight: normal;
+      }
+      &-num {
+        position: relative;
+        left: 420px;
+      }
+    }
+    &--profits {
+      padding-top: 15px;
+      font-size: 16px;
+    }
+    .select-box {
+      position: relative;
+      right: 35px;
+      z-index: 2;
+      height: 48px;
+      padding: 0 16px;
+      border-radius: 4px;
+      background: 0;
+      font-size: 16px;
+      line-height: 1.5;
+      cursor: pointer;
+      margin: 10px 0;
+      &:before {
+        color:gray;
+        content: "\f107";
+        font-family: "FontAwesome";
+        font-size:26px;
+        line-height: 60px;
+        pointer-events: none;
+        position: absolute;
+        right: 260px;
+      }
+      select {
+        background: none transparent;
+        vertical-align: middle;
+        font-size: inherit;
+        -webkit-appearance: button;
+        -moz-appearance: button;
+        appearance: button;
+        padding:0 16px ;
+        width: 450px;
+        height: 50px;
+      }
+    }
+    .input-brand {
+      border: 1px solid $Gray;
+      position: relative;
+      right: 20px;
+      width: 420px;
+    }
+    .hide-g_child-box {
+      margin-bottom: 40px;
+    }
+    .hide-size-box {
+      padding-bottom: 30px;
+    }
+    &--brand {
+      margin-bottom: 30px;
+    }
+    &--label{
+      color:gray;
+      font-size: 13px;
+      font-weight:bold;
+      float: left;
+      .form-question {
+        border: 1px solid $LightBlue;
+        border-radius: 50%;
+        width: 14px;
+        height: 14px;
+        display: inline-block;
+        text-align: center;
+        color: $White;
+        background-color: $LightBlue;
+        font-size: 3px;
+        position: relative;
+        bottom: 3px;
+      }
+    }
+    &--caution{
+      font-size: 14px;
+      line-height: 1.5;
+      &-space{
+        height:40px;
+      }
+      .link-text {
+        color: $LightBlue;
+      }
+    }
+    .btn-exhibit {
+      width: 700px;
+    }
+    .btn-gray {
+        background-color: $Gray;
+        color: $White;
+        width: 300px;
+        height: 18px;
+        text-align: center;
+        padding: 18px 0px;
+        font-size: 14px;
+        position: relative;
+        left: 200px;
+      }
+    &--comment{
+      font-size: 12px;
+      margin-top: 15px;
+    }
+    &-brand{
+      padding:16px 8px;
+      width:100%;
+      font-size: 14px;
+      &:hover{
+        background-color: #b3d4fc;
+        color:white;
+        text-shadow:none;
+      }
+    }
+  }
+  &__form{
+    border:thin solid $Gray;
+    @include clearfix;
+    &--text {
+      width: 670px;
+      height: 16px;
+      margin: 8px 0 0;
+      padding: 15px;
+      font-size: 16px;
+      border-radius: 4px;
+      border: 1px solid $Gray;
+      margin: 10px 0 40px;
+    }
+    &--text-area {
+      margin-top: 10px;
+      width: 680px;
+      height: 100px;
+      font-size: 16px;
+      border-radius: 1px;
+      border: 1px solid $Gray;
+      padding: 10px;
+    }
+    &--box{
+      margin-top:40px;
+      width: 400px;
+      float:right;
+    }
+    &--title{
+      font-size:16px;
+      font-weight: bold;
+    }
+
+    &-price{
+      @include clearfix;
+      height:90px;
+      border-bottom:thin solid $Gray;
+      &_left{
+        float:left;
+        padding-top:20px;
+        width:100px;
+      }
+      &_right{
+        float:right;
+      }
+      &-fee{
+        height:40px;
+        @include clearfix;
+        border-bottom:thin solid $Gray;
+        &-text{
+          float:left;
+          font-size:12px;
+        }
+        &-num{
+          float:right;
+        }
+      }
+    }
+  }
+  &__dropbox {
+    &--container{
+      margin-top: 16px;
+      height:186px;
+      width:100%;
+      float:left;
+    }
+    &--uploader{
+        height:100%;
+      &-container{
+        .visible-pc{
+          width:100%;
+          text-align: center;
+          height: 80px;
+          padding: 50px 0;
+          background: $WhiteGray;
+          border:thin dashed $Gray;
+          cursor: pointer;
+          cursor: hand;
+          span {
+            position: relative;
+            top: 20px;
+          }
+        }
+        #drop-text {
+          font-size: 14px;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
